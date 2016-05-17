@@ -1,35 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_width="150px"
-        android:layout_height="150px"
-        android:layout_marginLeft="4px"
-        android:layout_marginRight="10px"
-        android:layout_marginTop="4px"
-        android:src="@drawable/contact"
-        android:id="@+id/rowImage"/>
-
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.7"
-            android:text="New Text"
-            android:textAllCaps="true"
-            android:id="@+id/nameLabel"
-            android:textSize="@dimen/abc_text_size_headline_material" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.3"
-            android:text="New Text"
-            android:id="@+id/detailsLabel" />
+
+        <ImageView
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_marginLeft="4px"
+            android:layout_marginRight="10px"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_launcher"
+            android:id="@+id/rowImage"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:textAllCaps="true"
+                    android:id="@+id/nameLabel"
+                    android:textSize="@dimen/abc_text_size_headline_material" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/detailsLabel" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_marginLeft="4px"
+            android:layout_marginRight="4px"
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:minWidth="400px"
+            android:layout_weight="0.2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/removeContact"
+                android:onClick="removeContact"
+                android:text="Remove"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
     </LinearLayout>
+
 </LinearLayout>

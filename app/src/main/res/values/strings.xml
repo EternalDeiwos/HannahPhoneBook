@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hannahs Phone Book</string>
+    <string name="app_name">Greg\'s Phone Book</string>
     <string name="call_txt">Call</string>
     <string name="sms_txt">SMS</string>
 </resources>

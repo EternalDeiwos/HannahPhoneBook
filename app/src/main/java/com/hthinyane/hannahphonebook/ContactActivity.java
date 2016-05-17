@@ -19,7 +19,7 @@ public class ContactActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
 
-        info = (Contact) getIntent().getParcelableExtra(Contact.class.toString());
+        info = getIntent().getParcelableExtra(Contact.class.toString());
 
         name = (EditText)findViewById(R.id.nameText);
         name.setText(info.name);

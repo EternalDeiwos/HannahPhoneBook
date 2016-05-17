@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +34,7 @@ public class PhoneBookArrayAdapter extends ArrayAdapter<Contact> {
 
         if (pos < values.size()) {
             // then it is a valid position
+            toUpdate.saveContact();
             values.set(pos, toUpdate);
         }
 
@@ -40,13 +42,25 @@ public class PhoneBookArrayAdapter extends ArrayAdapter<Contact> {
     }
 
     public void addContact(Contact toAdd) {
-        int pos = Integer.parseInt(toAdd.id);
+        int pos = toAdd.id != null ? Integer.parseInt(toAdd.id) : -1;
 
         if (pos == -1) {
             toAdd.id = ""+ values.size();
+            toAdd.saveContact();
             this.add(toAdd);
             notifyDataSetChanged();
         }
+    }
+
+    public boolean remove(int position) {
+        if (position < values.size()) {
+            Contact tmp = values.get(position);
+            tmp.deleteContact();
+            values.remove(position);
+            notifyDataSetChanged();
+            return true;
+        }
+        return false;
     }
 
     public PhoneBookArrayAdapter (Context context, ArrayList<Contact> values) {
@@ -64,9 +78,12 @@ public class PhoneBookArrayAdapter extends ArrayAdapter<Contact> {
         ImageView imageView = (ImageView) rowView.findViewById(R.id.rowImage);
         nameView.setText(values.get(position).name);
         detailsView.setText(values.get(position).phone);
+        Button rmContactBtn = (Button) rowView.findViewById(R.id.removeContact);
+        rmContactBtn.setTag(MainActivity.REMOVE_CONTACT_TAG);
+        rmContactBtn.setFocusable(false);
 
         // get the resource ID from the context for the particular filename
-        imageView.setImageResource(R.drawable.contact);
+        imageView.setImageResource(R.mipmap.ic_launcher);
 
         return rowView;
 
