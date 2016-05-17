@@ -46,10 +46,10 @@ public class PhoneBookArrayAdapter extends ArrayAdapter<Contact> {
 
         if (pos == -1) {
             toAdd.id = ""+ values.size();
-            toAdd.saveContact();
-            this.add(toAdd);
-            notifyDataSetChanged();
         }
+        this.add(toAdd);
+        toAdd.saveContact();
+        notifyDataSetChanged();
     }
 
     public boolean remove(int position) {

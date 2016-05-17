@@ -43,12 +43,10 @@ public class MainActivity extends AppCompatActivity {
 //        contacts[2] = new Contact("2", "Ingrid Sieborger", "0466038623", "i.sieborger@ru.ac.za", "this is the research person");
 
         arrayAdapter = new PhoneBookArrayAdapter(this, contacts);
-        if (contacts.size() == 0) {
+        if (contacts.size() < 1) {
             arrayAdapter.addContact(new Contact("0", "Hannah Thinyane", "0466038640", "h.thinyane@ru.ac.za", "this is me"));
             arrayAdapter.addContact(new Contact("1", "Busi Mzangwa", "0466038247", "b.mzangwa@ru.ac.za", "this is the secretary"));
             arrayAdapter.addContact(new Contact("2", "Ingrid Sieborger", "0466038623", "i.sieborger@ru.ac.za", "this is the research person"));
-        } else {
-            Log.d("Contacts", "\n\n\n\n\n\n" + contacts.size() + "\n\n\n\n\n\n");
         }
         listView.setAdapter(arrayAdapter);
 
